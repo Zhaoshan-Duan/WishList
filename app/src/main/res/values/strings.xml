@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WishList</string>
+    <string name="price_et_hint">Ex: 5.99</string>
+    <string name="btn_submit_text">SUBMIT</string>
+    <string name="et_item_name_hint">Item Name</string>
+    <string name="et_url_hint">Ex. https://example.com/my-item-url</string>
 </resources>
