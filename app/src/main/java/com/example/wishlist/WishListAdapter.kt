@@ -15,6 +15,17 @@ class WishListAdapter : RecyclerView.Adapter<WishListAdapter.ViewHolder>() {
             notifyDataSetChanged()
         }
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder.from(parent)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item = data[position]
+        holder.bind(item)
+    }
+
+    override fun getItemCount() = data.size
+
     class ViewHolder private constructor(view: View) : RecyclerView.ViewHolder(view) {
         val nameTv = view.findViewById<TextView>(R.id.tv_item_name)
         val priceTv = view.findViewById<TextView>(R.id.tv_price)
@@ -37,18 +48,4 @@ class WishListAdapter : RecyclerView.Adapter<WishListAdapter.ViewHolder>() {
         }
 
     }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WishListAdapter.ViewHolder {
-        return ViewHolder.from(parent)
-    }
-
-    override fun onBindViewHolder(holder: WishListAdapter.ViewHolder, position: Int) {
-        val item = data[position]
-
-        holder.bind(item)
-    }
-
-    override fun getItemCount() = data.size
-
-
 }
