@@ -20,6 +20,14 @@ class WishListAdapter: RecyclerView.Adapter<WishListAdapter.ViewHolder>() {
         val priceTv = view.findViewById<TextView>(R.id.tv_price)
         val urlTv = view.findViewById<TextView>(R.id.tv_url)
 
+        fun bind(item: Product) {
+            apply {
+                nameTv.text = item.name
+                priceTv.text = item.price
+                urlTv.text = item.url
+            }
+        }
+
     }
 
     //TODO: Refactor this
@@ -28,17 +36,10 @@ class WishListAdapter: RecyclerView.Adapter<WishListAdapter.ViewHolder>() {
         return ViewHolder(view)
     }
 
-    //TODO: Refactor this
     override fun onBindViewHolder(holder: WishListAdapter.ViewHolder, position: Int) {
         val item = data[position]
 
-        holder.apply{
-            nameTv.text = item.name
-            priceTv.text = item.price
-            urlTv.text = item.url
-        }
+        holder.bind(item)
     }
-
-
     override fun getItemCount() = data.size
 }
