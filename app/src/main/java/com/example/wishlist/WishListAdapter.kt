@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class WishListAdapter: RecyclerView.Adapter<WishListAdapter.ViewHolder>() {
+class WishListAdapter : RecyclerView.Adapter<WishListAdapter.ViewHolder>() {
 
     var data = listOf<Product>()
         set(value) {
@@ -15,7 +15,7 @@ class WishListAdapter: RecyclerView.Adapter<WishListAdapter.ViewHolder>() {
             notifyDataSetChanged()
         }
 
-    inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    class ViewHolder private constructor(view: View) : RecyclerView.ViewHolder(view) {
         val nameTv = view.findViewById<TextView>(R.id.tv_item_name)
         val priceTv = view.findViewById<TextView>(R.id.tv_price)
         val urlTv = view.findViewById<TextView>(R.id.tv_url)
@@ -28,12 +28,18 @@ class WishListAdapter: RecyclerView.Adapter<WishListAdapter.ViewHolder>() {
             }
         }
 
+        companion object {
+            fun from(parent: ViewGroup): ViewHolder {
+                val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_product, parent, false)
+                return ViewHolder(view)
+            }
+        }
+
     }
 
-    //TODO: Refactor this
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WishListAdapter.ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_product, parent,false)
-        return ViewHolder(view)
+        return ViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: WishListAdapter.ViewHolder, position: Int) {
@@ -41,5 +47,8 @@ class WishListAdapter: RecyclerView.Adapter<WishListAdapter.ViewHolder>() {
 
         holder.bind(item)
     }
+
     override fun getItemCount() = data.size
+
+
 }
