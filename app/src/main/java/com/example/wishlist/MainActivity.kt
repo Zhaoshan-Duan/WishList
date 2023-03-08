@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wishlist.databinding.ActivityMainBinding
-import java.util.Collections.addAll
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         // Set up adapter
-        val adapter = ItemAdapter()
+        val adapter = WishListAdapter()
         binding.rvProducts.adapter = adapter
         binding.rvProducts.layoutManager = LinearLayoutManager(this)
 

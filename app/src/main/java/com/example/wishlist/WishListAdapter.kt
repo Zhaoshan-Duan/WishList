@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ItemAdapter: RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
+class WishListAdapter: RecyclerView.Adapter<WishListAdapter.ViewHolder>() {
 
     var data = listOf<Product>()
         set(value) {
@@ -19,16 +19,17 @@ class ItemAdapter: RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
         val nameTv = view.findViewById<TextView>(R.id.tv_item_name)
         val priceTv = view.findViewById<TextView>(R.id.tv_price)
         val urlTv = view.findViewById<TextView>(R.id.tv_url)
+
     }
 
     //TODO: Refactor this
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WishListAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_product, parent,false)
         return ViewHolder(view)
     }
 
     //TODO: Refactor this
-    override fun onBindViewHolder(holder: ItemAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: WishListAdapter.ViewHolder, position: Int) {
         val item = data[position]
 
         holder.apply{
