@@ -6,12 +6,9 @@
 
 The following functionality is completed:
 
-- [:heavy-check-mark:] **User can add an item to their wishlist**
-- [:heavy-check-mark:] **User can see their list of items based on previously inputted items**
-
-The following **optional** features are implemented:
-
-- [ ] Wishlist app is 🎨 **customized** 🎨
+- [:heavy_check_mark:] **User can add an item to their wishlist**
+- [:heavy_check_mark:] **User can see their list of items based on previously inputted items**
+- [:heavy_check_mark:] Wishlist app is 🎨 **customized** 🎨
 - [ ] User can delete an item by long pressing on the item
 - [ ] User can open an item's URL by clicking on the item
 
